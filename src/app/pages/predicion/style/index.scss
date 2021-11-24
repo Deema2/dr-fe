@@ -1,0 +1,161 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/variables.scss";
+@import "~bootstrap/scss/functions.scss";
+@import "~bootstrap/scss/mixins.scss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+@mixin fontStyle {
+  font-size: 18px;
+  font-weight: 300 !important;
+  }
+
+  @font-face {
+    font-family: 'Cairo-Black';
+    src: local('Cairo-Black'), url(../../../../assets/fonts/Cairo-Black.ttf) format('opentype');
+  }
+
+
+  .outer-cont{
+    // background: url('../../../../assets/imgs/Lean\ Logo\ -\ White.svg'), #F8F8F8;
+    background-color: #F3F3F3;
+
+  }
+
+  .inner-cont{
+      // width:50%;
+  //     // height:100vh;
+  //     padding-right:5%;
+  //     padding-left:5%;
+  //     padding-top:2%;
+  //     padding-bottom:2%;
+  //     background-color: white;
+  //     align-items: center;
+  //     box-shadow: 3px 3px 3px 3px	#D3D3D3;
+    align-content: center;
+      display: flex;
+      flex-direction: column;
+    justify-content: center;
+  }
+
+ .title{
+     font-size: 28px;
+     font-family: Cairo-Black;
+     text-align: center;
+ }
+
+.buttonTxt{
+    font-size: 15px;
+    font-family: Cairo-Black;
+}
+
+.imgPreview{
+    // background-color: aqua;
+    width:100%;
+    height:100%;
+}
+
+.runBtnContainer{
+    background-color: aqua;
+    width:100%;
+    height:100%;
+    align-items: center;
+}
+
+.runBtnInnerContainer{
+  width:25% !important;
+  height:100%;
+}
+
+.predProbabilityTxt{
+color:#1BB790
+}
+
+.predResultTxt{
+    color: #174F9B;
+    font-family: Cairo-Black;
+    text-align: center;
+    font-size: 25px;
+}
+
+.displayBox{
+  display: flex;
+  flex-direction:row;
+  align-content: center;
+  justify-content: center;
+}
+.ddlBox{
+  width:40%
+}
+
+.resultBox{
+  width: 60%;
+}
+.nav-title{
+  text-align: center;
+  color: #1B204C;
+  font-size: 2.15em;
+  font-family: Cairo-Black;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: "Poppins", sans-serif;
+}
+
+.drag-area{
+  border: 2px #fff;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Cairo-Light;
+  box-shadow: 3px 3px 3px 3px	#D3D3D3;
+}
+.drag-area.active{
+  border: 2px solid #fff;
+}
+.drag-area .icon{
+  font-size: 100px;
+  color: #fff;
+}
+.drag-area .dnd-txt1{
+  font-size: 25px;
+  font-weight: 500;
+  color: #B0B0B0;
+}
+.drag-area .dnd-txt2{
+  font-size: 20px;
+  font-weight: 500;
+  color: #B0B0B0;
+}
+.drag-area span{
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+  // margin: 10px 0 15px 0;
+}
+.drag-area button{
+  // padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #5256ad;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.drag-area img{
+  height: 400px;
+  width: 500px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
