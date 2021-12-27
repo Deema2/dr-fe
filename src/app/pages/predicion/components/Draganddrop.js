@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../style/index.scss'
+import _default from '../../../../assets/imgs/default.png'
 
 const styles = theme => ({
     loader: {
@@ -17,12 +18,14 @@ class Draganddrop extends Component {
     this.state = {
       className: 'drop-zone-hide',
       fileURL: "",
-      image: ""
+      image: "",
+      base64URL:""
     }
     this._onDragEnter = this._onDragEnter.bind(this);
     this._onDragLeave = this._onDragLeave.bind(this);
     this._onDragOver = this._onDragOver.bind(this);
     this._onDrop = this._onDrop.bind(this);
+    this.displayDefault = this.displayDefault.bind(this);
   }
 
     
@@ -70,7 +73,7 @@ class Draganddrop extends Component {
   }
 
   get_image(){
-      return this.state.image
+      return this.state.fileURL
   }
 
   componentWillUnmount() {
@@ -93,8 +96,24 @@ class Draganddrop extends Component {
         // let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
         // dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
         this.setState({fileURL: fileURL})
+        console.log("BASE URL")
+        console.log(fileURL)
       }
       fileReader.readAsDataURL(file);
+      this.props.turnOffDefDisplay()
+      // this.getBase64(file)
+      // .then(result => {
+      //   file["base64"] = result;
+      //   console.log("File Is", file);
+      //   console.log(result)
+      //   this.setState({
+      //     base64URL: result,
+      //     // file
+      //   });
+      // })
+      // .catch(err => {
+      //   console.log(err);
+      // });
     }else{
       alert("This is not an Image File!");
     //   dropArea.classList.remove("active");
@@ -102,14 +121,76 @@ class Draganddrop extends Component {
     }
   }
 
+
+  getBase64 = file => {
+    return new Promise(resolve => {
+      let fileInfo;
+      let baseURL = "";
+      // Make new FileReader
+      let reader = new FileReader();
+
+      // Convert the file to base64 text
+      reader.readAsDataURL(file);
+
+      // on reader load somthing...
+      reader.onload = () => {
+        // Make a fileInfo Object
+        console.log("Called", reader);
+        baseURL = reader.result;
+        console.log("BASE URL")
+        console.log(baseURL);
+        resolve(baseURL);
+      };
+      console.log(fileInfo);
+    });
+  };
+
+
+  handleFileInputChange = e => {
+    console.log(e.target.files[0]);
+    let { file } = this.state;
+
+    file = e.target.files[0];
+
+    this.getBase64(file)
+      .then(result => {
+        file["base64"] = result;
+        console.log("File Is", file);
+        this.setState({
+          base64URL: result,
+          file
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    this.setState({
+      file: e.target.files[0]
+    });
+  };
+
+  displayDefault = (defaultPrev) =>{
+
+    if (defaultPrev === true)
+    this.setState({fileURL: ""})
+    console.log("SET")
+  }
+
+
+
   render() {
     const { classes } = this.props;
+    console.log("this.props.defaultPre", this.props.defaultPrev)
     return (
        <div id="dragbox" className="drag-area">
           <div className="icon"><i className="fas fa-cloud-upload-alt"></i></div>
           <p className = "dnd-txt1">Drag your image here</p> 
           <p className = "dnd-txt2">PNG and JPEG are allowed </p>
-          <img src = {this.state.fileURL? this.state.fileURL: ""} />
+          {/* <div style = {{display: this.state.fileURL? 'block' : 'none'}}> */}
+          <img src = {(this.props.defaultPrev)? _default:this.state.fileURL} className="prevImg" onerror='this.style.display = "none"'/>
+          {/* </div> */}
+         
           <input type="file" hidden />
         </div>
     )

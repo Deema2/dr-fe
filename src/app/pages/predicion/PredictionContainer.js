@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PredictionComponent from './PredictionComponent';
-import { predict } from '../../../redux/prediction/prediction.actions'
+import { predict, returnStateToDefault } from '../../../redux/prediction/prediction.actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = dispatch => ({
     predict: (predictionData) => dispatch(predict(predictionData)),
+    returnStateToDefault: () => dispatch(returnStateToDefault())
 });
 
 

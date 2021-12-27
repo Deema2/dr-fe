@@ -29,14 +29,14 @@ class Navbar extends Component {
             <Col>
             <Row>
 
-            <Col style = {{display:'flex',justifyContent:'right'}}>
+            <Col sm="6" xs = "6" style = {{display:'flex',justifyContent:'right'}}>
                  <img alt = "retina"
                 src={kkeshlogo}
                 width="180px" height="80px"
                 />
                 </Col>
             
-            <Col style = {{display:'flex', justifyContent:'left'}}>
+            <Col sm="6" xs = "6" style = {{display:'flex', justifyContent:'left'}}>
                 <img alt = "retina"
                 src={leanlogo}
                 width="90px" height="80px"

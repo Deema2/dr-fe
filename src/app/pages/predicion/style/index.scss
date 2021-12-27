@@ -22,6 +22,14 @@
 
   }
 
+  hr{
+    border:0;
+    margin:0;
+    width:100%;
+    height:0.2em !important;
+    background:white !important;
+}
+
   .inner-cont{
       // width:50%;
   //     // height:100vh;
@@ -55,6 +63,13 @@
     height:100%;
 }
 
+.prevImg{
+  max-width: 95%;
+  max-height: 100%;
+  object-fit: cover;
+  // display: block;
+}
+
 .runBtnContainer{
     background-color: aqua;
     width:100%;
@@ -67,9 +82,26 @@
   height:100%;
 }
 
-.predProbabilityTxt{
-color:#1BB790
+.uploadAnotherImgBtn{
+  text-decoration:underline;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: Cairo-Light !important;
+  color: #174F9B;
+  text-decoration: underline;
+  cursor: pointer;
 }
+
+
+.predProbabilityTxt{
+color:#8b0000
+}
+
+.predProbabilityTxt0{
+  color:#1BB790
+  }
 
 .predResultTxt{
     color: #174F9B;
@@ -107,6 +139,7 @@ color:#1BB790
 
 .drag-area{
   border: 2px #fff;
+  // background-color: blue;
   background-color: white;
   height: 100%;
   width: 100%;
@@ -123,6 +156,7 @@ color:#1BB790
 }
 .drag-area .icon{
   font-size: 100px;
+  text-align: center;
   color: #fff;
 }
 .drag-area .dnd-txt1{
@@ -158,4 +192,11 @@ color:#1BB790
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 15px;
+}
+
+.footer{
+  background-image: url('../../../../assets/imgs/footerimg.png');
+  background-size: cover;
+  
+  // min-height: calc(100vh - 500px);
 }

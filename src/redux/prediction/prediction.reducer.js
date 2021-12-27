@@ -28,15 +28,15 @@ export const predictionReducer = (state = initialState, action) => {
                 // predictionMsg:"",
             };
         case types.PREDICTION_SUCCESS:
-            console.log("REDUX",action.payload['Probability:'])
+            console.log("REDUX",action.payload)
             //TODO: add condition
             return {
                 ...state,
                 loading: false,
                 ok: true,
                 // predictionMsg: action.payload,
-                predProbability: action.payload['Probability:'],
-                predClass: action.payload['Class:'],
+                predProbability: action.payload.prediction_prob,
+                predClass: action.payload.prediction_label,
                 errorMsg: action.payload.message,
             };
         case types.PREDICTION_FAIL:
@@ -49,6 +49,20 @@ export const predictionReducer = (state = initialState, action) => {
                 errorCode: action.payload.status,
                 // errorMsg: functions.getErrorMessage(action.payload.status)
             };
+        case types.DEFAULT_STATE:
+            console.log("----------------------------")
+            return {
+                    ...state,
+                    errorCode: "",
+                    errorMsg: "",
+                    loading: false,
+                    ok: false,
+                    token: "",
+                    code: "",
+                    // predictionMsg:"",
+                    predProbability:"",
+                    predClass:""
+                };
 
         default:
             return state;
