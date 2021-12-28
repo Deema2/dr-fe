@@ -4,15 +4,6 @@ import { RSAA } from 'redux-api-middleware'
 
 
 
-const getBase64 = (file) => {
-    console.log(file)
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
-    });}
-
 export const predict = (imgBase64) =>{
 
 
@@ -73,7 +64,8 @@ export const predict = (imgBase64) =>{
                     }
                 }
             ],
-            endpoint: '/testing',
+            // endpoint: '/testing',
+            endpoint: `${process.env.REACT_APP_BACKEND_URL}testing`,
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',

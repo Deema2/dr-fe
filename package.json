@@ -1,7 +1,6 @@
 {
   "name": "dr-frontend",
   "version": "0.1.0",
-  "proxy": "https://84qndld5j6.execute-api.us-east-2.amazonaws.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
