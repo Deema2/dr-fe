@@ -17,13 +17,18 @@ export const predict = (imgBase64) =>{
 
 
 
+    console.log(imgBase64)
+    imgBase64 = imgBase64.replace("data:image/png;base64,", "");
+    imgBase64 = imgBase64.replace("data:image/jpeg;base64,", "");
+    imgBase64 = imgBase64.replace("data:image/jpg;base64,", "");
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        body: raw,
+        body: imgBase64,
         redirect: 'follow'
       };
       
@@ -38,10 +43,6 @@ export const predict = (imgBase64) =>{
 
 
 
-    console.log(imgBase64)
-    imgBase64 = imgBase64.replace("data:image/png;base64,", "");
-    imgBase64 = imgBase64.replace("data:image/jpeg;base64,", "");
-    imgBase64 = imgBase64.replace("data:image/jpg;base64,", "");
 
     // var raw = getBase64(imgData.get('retina_img')).then(
     //     data => {console.log(data)
