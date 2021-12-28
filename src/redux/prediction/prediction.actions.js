@@ -50,7 +50,11 @@ export const predict = (imgBase64) =>{
             ],
             endpoint: 'https://84qndld5j6.execute-api.us-east-2.amazonaws.com/testing',
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Origin": '*' },
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+            'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization',
+            
+         },
             body: imgBase64,
         },
     };
