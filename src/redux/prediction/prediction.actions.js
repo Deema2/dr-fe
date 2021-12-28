@@ -16,17 +16,17 @@ export const predict = (imgBase64) =>{
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     // myHeaders.append("Access-Control-Allow-Origin", "application/json");
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: imgBase64,
-        redirect: 'follow'
-      };
+    // var requestOptions = {
+    //     method: 'POST',
+    //     headers: myHeaders,
+    //     body: imgBase64,
+    //     redirect: 'follow'
+    //   };
       
-      fetch("https://84qndld5j6.execute-api.us-east-2.amazonaws.com/testing", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log("ddddddddddddddddddddd",result))
-        .catch(error => console.log('error', error));
+    //   fetch("https://84qndld5j6.execute-api.us-east-2.amazonaws.com/testing", requestOptions)
+    //     .then(response => response.text())
+    //     .then(result => console.log("ddddddddddddddddddddd",result))
+    //     .catch(error => console.log('error', error));
 
 
 
@@ -49,32 +49,29 @@ export const predict = (imgBase64) =>{
     // raw = raw.replace("data:image/jpeg;base64,", "");
     // raw = raw.replace("data:image/jpg;base64,", "");
 
-    
+    return {
+        [RSAA]: {
+            types: [
+                types.PREDICTION_REQUEST,
+                types.PREDICTION_SUCCESS,
+                {
+                    type: types.PREDICTION_FAIL,
+                    payload: async (action, state, res) => {
+                        return await res;
+                    }
+                }
+            ],
+            // endpoint: '/testing',
+            endpoint: 'https://84qndld5j6.execute-api.us-east-2.amazonaws.com/testing',
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+            'Access-Control-Allow-Headers': '*',
 
-
-    // return {
-    //     [RSAA]: {
-    //         types: [
-    //             types.PREDICTION_REQUEST,
-    //             types.PREDICTION_SUCCESS,
-    //             {
-    //                 type: types.PREDICTION_FAIL,
-    //                 payload: async (action, state, res) => {
-    //                     return await res;
-    //                 }
-    //             }
-    //         ],
-    //         // endpoint: '/testing',
-    //         endpoint: 'https://84qndld5j6.execute-api.us-east-2.amazonaws.com/testing',
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
-    //         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-    //         'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization',
-
-    //      },
-    //         body: imgBase64,
-    //     },
-    // };
+         },
+            body: imgBase64,
+        },
+    };
 }
 
 export const returnStateToDefault = () =>{
