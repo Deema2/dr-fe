@@ -14,6 +14,30 @@ const getBase64 = (file) => {
     });}
 
 export const predict = (imgBase64) =>{
+
+
+
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+      
+      fetch("https://84qndld5j6.execute-api.us-east-2.amazonaws.com/testing", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log("ddddddddddddddddddddd",result))
+        .catch(error => console.log('error', error));
+
+
+
+
+
+
+
     console.log(imgBase64)
     imgBase64 = imgBase64.replace("data:image/png;base64,", "");
     imgBase64 = imgBase64.replace("data:image/jpeg;base64,", "");
@@ -52,8 +76,8 @@ export const predict = (imgBase64) =>{
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-            'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization',
-            
+            'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization',
+
          },
             body: imgBase64,
         },
