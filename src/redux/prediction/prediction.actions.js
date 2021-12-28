@@ -68,7 +68,6 @@ export const predict = (imgBase64) =>{
             endpoint: 'https://84qndld5j6.execute-api.us-east-2.amazonaws.com/testing',
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
-            'Access-Control-Allow-Headers': '*',
 
          },
             body: imgBase64,
