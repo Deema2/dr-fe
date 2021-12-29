@@ -12,7 +12,6 @@ import pred2 from '../../../assets/imgs/pred2.png'
 import pred3 from '../../../assets/imgs/pred3.png'
 import pred4 from '../../../assets/imgs/pred4.png'
 import footer from '../../../assets/imgs/footerimg.png'
-import axios from 'axios';
 
 import Spinner from 'react-bootstrap/Spinner'
 const styles = theme => ({
