@@ -62,11 +62,12 @@ export const predict = (imgBase64) =>{
                 }
             ],
             // endpoint: '/testing',
-            endpoint: process.env.REACT_APP_BACKEND_URL,
+            endpoint: 'https://84qndld5j6.execute-api.us-east-2.amazonaws.com/testing',
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
             'Access-Control-Allow-Headers': '*',
+            'Accept': 'application/json',
 
          },
             body: imgBase64,
