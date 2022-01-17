@@ -36,12 +36,12 @@ class Navbar extends Component {
                 />
                 </Col>
             
-            <Col sm="6" xs = "6" style = {{display:'flex', justifyContent:'left'}}>
-                <img alt = "retina"
-                src={leanlogo}
-                width="90px" height="80px"
-                />
-                </Col>
+//             <Col sm="6" xs = "6" style = {{display:'flex', justifyContent:'left'}}>
+//                 <img alt = "retina"
+//                 src={leanlogo}
+//                 width="90px" height="80px"
+//                 />
+//                 </Col>
               
                
                 </Row>
