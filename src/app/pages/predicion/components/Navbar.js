@@ -21,9 +21,7 @@ class Navbar extends Component {
         return (
         <Row>
             <Col>
-                <img alt="eye"
-                src = {eye}
-                width = "125px" height = "105px" />
+            
             </Col>
 
             <Col>
